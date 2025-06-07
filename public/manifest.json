@@ -1,11 +1,24 @@
 {
-    "manifest_version": 3,
-    "name": "Vite Chrome Extension",
-    "version": "1.0",
-    "description": "A simple Chrome extension using Vite",
-    "action": {
-      "default_popup": "index.html",
-      "default_icon": "icon.png"
-    },
-    "permissions": []
+  "manifest_version": 3,
+  "name": "YouTube Video Enhancer",
+  "version": "1.0",
+  "description": "Adds a metrics bar to YouTube videos like vidIQ.",
+  "permissions": [],
+  "host_permissions": ["https://www.youtube.com/*"],
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/watch*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
   }
+}
